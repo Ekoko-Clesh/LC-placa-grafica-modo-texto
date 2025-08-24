@@ -38,7 +38,7 @@
 * @param x Posição horizontal (coluna) onde o caractere será impresso.
 * @param y Posição vertical (linha) onde o caractere será impresso.
 * @param atributos Atributos do caractere (cor, intensidade, etc.).
-* @return Verdadeiro se a impressão for bem-sucedida, falso caso contrário.
+* @return VERDADE se a impressão for bem-sucedida, falso caso contrário.
 */
 
 Bool printCharAt(char ch, int x, int y, char atributos);
@@ -49,7 +49,7 @@ Bool printCharAt(char ch, int x, int y, char atributos);
 * @param x Posição horizontal (coluna) onde a cadeia será impressa.
 * @param y Posição vertical (linha) onde a cadeia será impressa.
 * @param atributos Atributos dos caracteres (cor, intensidade, etc.).
-* @return Verdadeiro se a impressão for bem-sucedida, falso caso contrário.
+* @return VERDADE se a impressão for bem-sucedida, falso caso contrário.
  */
  Bool printStringAt(const char *str, int x, int y, char atributos);
 
@@ -61,7 +61,7 @@ Bool printCharAt(char ch, int x, int y, char atributos);
     * @param altura Altura do quadro.
     * @param atributos Atributos do quadro (cor, intensidade, etc.).
     * @param titulo Título do quadro (opcional, pode ser NULL).
-    * @return Verdadeiro se o quadro for desenhado com sucesso, falso caso contrário.
+    * @return VERDADE se o quadro for desenhado com sucesso, falso caso contrário.
 */
 
 Bool drwaFrame(const char *titulo, char atributos, int x, int y, int largura, int altura);
@@ -73,7 +73,7 @@ Bool drwaFrame(const char *titulo, char atributos, int x, int y, int largura, in
     * @param x Posição horizontal (coluna) onde o caractere será impresso.
     * @param y Posição vertical (linha) onde o caractere será impresso.
     * @param atributos Atributos do caractere (cor, intensidade, etc.).
-    * @return Verdadeiro se a impressão for bem-sucedida, falso caso contrário.
+    * @return VERDADE se a impressão for bem-sucedida, falso caso contrário.
  */
  Bool printCharRepeated(char ch, int count, int x, int y, char attributes);
 
@@ -84,7 +84,7 @@ Bool drwaFrame(const char *titulo, char atributos, int x, int y, int largura, in
     * @param largura Largura da região a ser limpa.
     * @param altura Altura da região a ser limpa.
     * @param atributos Atributos do caractere (cor, intensidade, etc.) a ser usado para limpar a região.
-    * @return Verdadeiro se a região for limpa com sucesso, falso caso contrário.
+    * @return VERDADE se a região for limpa com sucesso, falso caso contrário.
 */
 Bool clearScreen(int x, int y, int largura, int altura, char attributes);
 
@@ -96,7 +96,7 @@ Bool clearScreen(int x, int y, int largura, int altura, char attributes);
     * @param altura A altura da região a ser deslocada.
     * @param linhas Número de linhas para deslocar (positivo para baixo, negativo para cima).
     * @param atributos Atributos do caractere (cor, intensidade, etc.) a ser usado para preencher as linhas vazias após o deslocamento.
-    * @return Verdadeiro se o deslocamento for bem-sucedido, falso caso contrário.
+    * @return VERDADE se o deslocamento for bem-sucedido, falso caso contrário.
  */
  Bool scrollRegion(int x, int y, int largura, int altura, int linhas, char atributos);
  /*@}*/
