@@ -75,7 +75,7 @@ Bool drwaFrame(const char *titulo, char atributos, int x, int y, int largura, in
     * @param atributos Atributos do caractere (cor, intensidade, etc.).
     * @return VERDADE se a impressão for bem-sucedida, falso caso contrário.
  */
- Bool printCharRepeated(char ch, int count, int x, int y, char attributes);
+ Bool printCharRepeated(char ch, int count, int x, int y, char atributos);
 
  /**
     * @brief Limpa uma região rectangula do ecrã com um atributo específico
@@ -86,7 +86,7 @@ Bool drwaFrame(const char *titulo, char atributos, int x, int y, int largura, in
     * @param atributos Atributos do caractere (cor, intensidade, etc.) a ser usado para limpar a região.
     * @return VERDADE se a região for limpa com sucesso, falso caso contrário.
 */
-Bool clearScreen(int x, int y, int largura, int altura, char attributes);
+Bool clearScreen(int x, int y, int largura, int altura, char atributos);
 
 /**
     * @brief Desloca o conteúdo do ecrã para cima ou para baixo.
@@ -101,4 +101,4 @@ Bool clearScreen(int x, int y, int largura, int altura, char attributes);
  Bool scrollRegion(int x, int y, int largura, int altura, int linhas, char atributos);
  /*@}*/
  /**@} Fim do grupo LC_VIDEO_TEXT */
-#endif // _LC_VIDEO_TEXT_H_
+#endif // LC_VIDEO_TEXT_H_

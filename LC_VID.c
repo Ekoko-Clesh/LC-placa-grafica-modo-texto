@@ -1,4 +1,4 @@
-#include "LC_VIDEO_TEXT.h"
+#include "LC_VID.h"
 #include <go32.h> // Para _dos_ds e _farpokeb, acesso à memória
 #include <sys/farptr.h> // Para _farpokeb
 
@@ -54,7 +54,7 @@
             return FALSO; // Falha ao imprimir um caractere
         }
         str++; // Avança para o próximo caractere
-        x++ // Avança para a próxima coluna
+        x++;// Avança para a próxima coluna
 
         if(x >= LARGURA_LOCAL) {
             x = 0; // volta à primeira coluna
@@ -128,6 +128,141 @@ Bool drawFrame(const char *titulo, char atributos, int x, int y, int largura, in
                     return FALSO; // Falha ao imprimir o título
                 }
             }
-            return VERDADE; // Quadro desenhado com sucesso
+           
         }
+         return VERDADE; // Quadro desenhado com sucesso
+}
+
+/**
+ * @brief Imprime o mesmo carácter repetidamente numa linha.
+ * 
+ * Esta função é útil para desenhar linhas horizontais ou preencher áreas
+ * com um padrão repetitivo, sem ter de chamar printCharAt múltiplas vezes.
+ * 
+ * @param ch O carácter a repetir.
+ * @param contagem O número de vezes que o carácter deve ser repetido.
+ * @param x A coordenada da coluna inicial.
+ * @param y A coordenada da linha.
+ * @param atributos Os atributos de cor e estilo.
+ * @return VERDADE se a operação for bem-sucedida, FALSO caso ocorra um erro
+ *         (e.g., tentativa de escrever fora dos limites do ecrã).
+ */
+Bool printCharRepeatedAt(char ch, int contagem, int x, int y, char atributos) {
+    int i; // Contador
+    for (i = 0; i < contagem; i++) {
+        // Imprimimos o carácter na posição actual e avançamos a coluna.
+        // Se printCharAt falhar, a nossa função também falha.
+        if (printCharAt(ch, x + i, y, atributos) == FALSO) {
+            return FALSO; // Erro ao imprimir um carácter repetido.
+        }
+    }
+    return VERDADE; // Operação concluída com sucesso.
+}
+
+/**
+ * @brief Limpa uma região retangular do ecrã com um atributo específico.
+ * 
+ * Esta função preenche uma área definida do ecrã com espaços (' ') e os
+ * atributos de cor e estilo fornecidos. É essencial para 
+
+
+remover conteúdo antigo ou preparar áreas para nova informação.
+ * 
+ * @param x A coordenada da coluna inicial da região a limpar.
+ * @param y A coordenada da linha inicial da região a limpar.
+ * @param largura A largura da região a limpar.
+ * @param altura A altura da região a limpar.
+ * @param atributos Os atributos de cor e estilo a usar para preencher a região limpa.
+ * @return VERDADE se a operação for bem-sucedida, FALSO caso as dimensões ou
+ *         posições sejam inválidas.
+ */
+Bool clearScreen(int x, int y, int largura, int altura, char atributos) {
+    int i, j; // Contadores
+
+    // Verificamos se a região a limpar está dentro dos limites do ecrã.
+    if (x < 0 || y < 0 || 
+        x + largura > LARGURA_LOCAL || y + altura > ALTURA_LOCAL) {
+        return FALSO; // Região inválida.
+    }
+
+    // Percorremos cada célula da região e escrevemos um espaço com os atributos indicados.
+    for (j = 0; j < altura; j++) {
+        for (i = 0; i < largura; i++) {
+            if (printCharAt(
+                ' ', // O carácter a usar para limpar é um espaço
+                x + i, 
+                y + j, 
+                atributos
+            ) == FALSO) {
+                return FALSO; // Se falhar a limpar um carácter, falha tudo.
+            }
+        }
+    }
+    return VERDADE; // Região limpa com sucesso.
+}
+
+/**
+ * @brief Desloca o conteúdo de uma região do ecrã para cima.
+ * 
+ * Esta função simula um efeito de "scroll" (rolagem) dentro de uma área
+ * retangular do ecrã. O conteúdo das linhas é movido para cima, e as
+ * linhas que ficam vazias no fundo da região são preenchidas com espaços
+ * e os atributos especificados.
+ * 
+ * @param x A coordenada da coluna inicial da região a deslocar.
+ * @param y A coordenada da linha inicial da região a deslocar.
+ * @param largura A largura da região a deslocar.
+ * @param altura A altura da região a deslocar.
+ * @param linhas O número de linhas a deslocar para cima. Se for 0 ou negativo,
+ *               não faz nada. Se for maior ou igual à altura, limpa a região toda.
+ * @param atributos Os atributos de cor e estilo para preencher as novas linhas vazias.
+ * @return VERDADE se a operação for bem-sucedida, FALSO caso as dimensões ou
+ *         posições sejam inválidas.
+ */
+Bool scrollRegion(int x, int y, int largura, int altura, int linhas, char atributos) {
+    int i, j; // Contadores
+    unsigned long offset_origem, offset_destino; // Offsets na memória de vídeo
+
+    // Verificamos se a região é válida e se o número de linhas a deslocar é razoável.
+    if (x < 0 || y < 0 || 
+        x + largura > LARGURA_LOCAL || y + altura > ALTURA_LOCAL ||
+        linhas < 0) {
+        return FALSO; // Região ou número de linhas inválido.
+    }
+
+    // Se o número de linhas a deslocar for maior ou igual à altura da região,
+    // significa que toda a região deve ser limpa.
+    if (linhas >= altura) {
+        return clearScreen(x, y, largura, altura, atributos); // Limpa a região toda.
+    }
+
+    // Percorremos as linhas da região, movendo o conteúdo.
+    // Começamos da primeira linha que será visível após o scroll.
+    for (j = y; j < y + altura - linhas; j++) {
+        for (i = x; i < x + largura; i++) {
+            // Calculamos o offset da origem (onde o carácter está agora)
+            offset_origem = 2 * (LARGURA_LOCAL * (j + linhas) + i);
+            // Calculamos o offset do destino (para onde o carácter vai ser movido)
+            offset_destino = 2 * (LARGURA_LOCAL * j + i);
+
+            // Lemos o carácter e os atributos da posição de origem.
+            char ch = _farpeekb(_dos_ds, ENDERECO_VIDEO_LOCAL + offset_origem);
+            char attr = _farpeekb(_dos_ds, ENDERECO_VIDEO_LOCAL + offset_origem + 1);
+
+            // Escrevemos o carácter e os atributos na posição de destino.
+            _farpokeb(_dos_ds, ENDERECO_VIDEO_LOCAL + offset_destino, ch);
+            _farpokeb(_dos_ds, ENDERECO_VIDEO_LOCAL + offset_destino + 1, attr);
+        }
+    }
+
+    // Preenchemos as últimas 'linhas' que ficaram vazias com espaços e os atributos indicados.
+    for (j = y + altura - linhas; j < y + altura; j++) {
+        for (i = x; i < x + largura; i++) {
+            if (printCharAt(' ', i, j, atributos) == FALSO) {
+                return FALSO; // Se falhar a limpar, falha tudo.
+            }
+        }
+    }
+
+    return VERDADE; // Operação de scroll concluída com sucesso.
 }

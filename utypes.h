@@ -24,8 +24,8 @@ typedef unsigned short Word; ///< conjunto de 16 bits para máquinas i386
 */
 
 typedef enum {
-    falso = 0, ///< Valor Falso
-    verdade = 1   ///< Valor Verdadeiro
+    FALSO = 0, ///< Valor Falso
+    VERDADE = 1   ///< Valor Verdadeiro
 } Bool; ///< Tipo booleano definido pelo utilizador
 /**@} Fim dos tipos de utilizador*/
 #endif
