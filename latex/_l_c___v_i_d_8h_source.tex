@@ -1,0 +1,36 @@
+\doxysection{LC\+\_\+\+VID.\+h}
+\hypertarget{_l_c___v_i_d_8h_source}{}\label{_l_c___v_i_d_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_LC\_VIDEO\_TEXT\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_LC\_VIDEO\_TEXT\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}utypes.h"{}}\ \textcolor{comment}{//\ Inclui\ o\ tipo\ Bool\ e\ outros\ tipos\ definidos\ pelo\ utilizador}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ENDERECO\_VIDEO\ 0xB8000\ }}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ LARGURA\ 80\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ALTURA\ 25\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ AZUL\_FRENTE\ (1\ <<\ 0)\ \ \ }}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ VERDE\_FRENTE\ (1\ <<\ 1)\ \ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ VERMELHO\_FRENTE\ (1\ <<\ 2)\ }}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ INTENSO\ (1\ <<\ 3)\ }}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ AZUL\_FUNDO\ (1\ <<\ 4)\ \ \ \ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ VERDE\_FUNDO\ (1\ <<\ 5)\ \ \ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ VERMELHO\_FUNDO\ (1\ <<\ 6)\ }}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ NORMAL\ (VERMELHO\_FRENTE\ |\ VERDE\_FRENTE\ |\ AZUL\_FRENTE)\ }}
+\DoxyCodeLine{00044\ \mbox{\hyperlink{group___user_types_ga39db6982619d623273fad8a383489309}{Bool}}\ printCharAt(\textcolor{keywordtype}{char}\ ch,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ atributos);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00054\ \ \mbox{\hyperlink{group___user_types_ga39db6982619d623273fad8a383489309}{Bool}}\ printStringAt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ atributos);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00067\ \mbox{\hyperlink{group___user_types_ga39db6982619d623273fad8a383489309}{Bool}}\ drwaFrame(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *titulo,\ \textcolor{keywordtype}{char}\ atributos,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largura,\ \textcolor{keywordtype}{int}\ altura);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00078\ \ \mbox{\hyperlink{group___user_types_ga39db6982619d623273fad8a383489309}{Bool}}\ printCharRepeated(\textcolor{keywordtype}{char}\ ch,\ \textcolor{keywordtype}{int}\ count,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ atributos);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \mbox{\hyperlink{group___user_types_ga39db6982619d623273fad8a383489309}{Bool}}\ clearScreen(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largura,\ \textcolor{keywordtype}{int}\ altura,\ \textcolor{keywordtype}{char}\ atributos);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00101\ \ \mbox{\hyperlink{group___user_types_ga39db6982619d623273fad8a383489309}{Bool}}\ scrollRegion(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largura,\ \textcolor{keywordtype}{int}\ altura,\ \textcolor{keywordtype}{int}\ linhas,\ \textcolor{keywordtype}{char}\ atributos);}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LC\_VIDEO\_TEXT\_H\_}}
+
+\end{DoxyCode}

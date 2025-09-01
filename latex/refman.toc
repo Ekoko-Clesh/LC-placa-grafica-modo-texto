@@ -1,0 +1,17 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {portuges}{}\relax 
+\contentsline {chapter}{\numberline {1}Documentação do Projecto Trabalho 1 em Grupo}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introdução}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Autores}{1}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Índice de Tópicos}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tópicos}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Índice dos ficheiros}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Lista de ficheiros}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Tópico}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Types}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Descrição detalhada}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Documentação dos valores da enumeração}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Bool}{7}{subsubsection.4.1.2.1}%
+\contentsline {chapter}{\numberline {5}Documentação do ficheiro}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}LC\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}VID.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}utypes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.5.2}%

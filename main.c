@@ -3,6 +3,25 @@
 #include "LC_VID.h" 
 #include "utypes.h" 
 
+/**
+ * @mainpage Documentação do Projecto Trabalho 1 em Grupo
+ *
+ * @section intro_sec Introdução
+ *
+ * Este é o documento gerado automaticamente para o projecto Trabalho 1 em Grupo.
+ * Ele descreve a estrutura do código, funções, tipos de dados e mais.
+ *
+ * @section author_sec Autores
+ *
+ * Este projecto foi desenvolvido por:
+ * - António Frazão
+ * - Ekoko Clesh
+ *
+ * @version 1.0
+ * @date 2025-09-01
+ *
+ */
+
 
 /**
  * @brief Verifica se um caracter é um dígito numérico.
