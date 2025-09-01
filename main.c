@@ -20,7 +20,88 @@
  * @version 1.0
  * @date 2025-09-01
  *
- */
+  * <hr>
+ *
+ * @image html img1.png "Figura 1: Execução 1."
+ * @image latex img1.png "Figura 1: Execução 1" width=16cm
+ *
+ * <hr>
+ *
+ * @image html img2.png "Figura 2: Execução 2"
+ * @image latex img2.png "Figura 2: Execuçao 2" width=16cm
+ *
+ * <hr>
+ *
+ * @image html img3.png "Figura 3: Execução 3"
+ * @image latex img3.png "Figura 3: Execução 3" width=16cm
+ *
+ * <hr>
+ *
+ * @image html img4.png "Figura 4: Execução 4"
+ * @image latex img4.png "Figura 4: Execução 4" width=16cm
+
+  * @image html img5.png "Figura 4: Execução 5"
+ * @image latex img5.png "Figura 4: Execução 5" width=16cm
+/**
+ * @section dificuldades_sec Dificuldades Encontradas Durante o Desenvolvimento
+ *
+ * A execução deste projecto, levou-nos a enfrentar alguns obstáculos técnicos que exigiram uma análise
+ * cuidada e soluções específicas da nossa parte. Estes desafios, embora
+ * tivessem atrasado momentaneamente o progresso, acabaram por se revelar
+ * oportunidades de aprendizagem valiosas sobre as ferramentas que tínhamos
+ * à nossa disposição.
+ *
+ *
+ * @subsection desafio_dosbox Incompatibilidade de Nomes de Ficheiro no Ambiente DOSBox
+ *
+ * O primeiro grande desafio com que nos deparámos surgiu durante a compilação
+ * do código-fonte. O projecto recorreu ao emulador DOSBox para garantir a
+ * compatibilidade com compiladores mais antigos, mas esta decisão trouxe
+ * consigo uma limitação inesperada. O processo de compilação, automatizado
+ * através de um `Makefile`, falhava consistentemente sempre que os ficheiros
+ * de código tinham nomes mais longos, como `LC_video_text.c`.
+ *
+ * A nossa análise do problema revelou que a causa era a estrita convenção de
+ * nomes de ficheiro **8.3** (oito caracteres para o nome, três para a extensão),
+ * imposta pelo sistema de ficheiros FAT16 que o DOSBox emula. O emulador
+ * renomeava automaticamente os ficheiros longos para um formato abreviado
+ * (ex: `LC_VID~1.C`), mas o `Makefile` que tínhamos construído continuava a
+ * referenciar o nome original. Esta discrepância resultava em erros de
+ * "Ficheiro não encontrado", bloqueando a compilação.
+ *
+ * A solução que encontrámos passou por uma refactorização: todos
+ * os nomes de ficheiro do projecto foram por nós encurtados para se conformarem
+ * ao padrão 8.3, como por exemplo `LC_vid.c`. Esta adaptação, embora simples,
+ * foi crucial para assegurarmos a estabilidade do ambiente de compilação e
+ * demonstrou na prática como sistemas legados podem impor restrições ao
+ * desenvolvimento moderno.
+ *
+ *
+ * @subsection desafio_doxygen Configuração da Geração de Documentação em PDF
+ *
+ * Um segundo obstáculo, não menos complexo, surgiu na fase final, quando
+ * tentámos gerar a documentação do projecto em formato PDF. A cadeia de
+ * ferramentas, composta pelo Doxygen e pelo sistema de composição de texto
+ * MiKTeX (LaTeX), apresentou-nos uma série de problemas de configuração.
+ *
+ * O processo falhava durante a compilação dos ficheiros `.tex` intermediários,
+ * com erros que indicavam a falta de "pacotes" LaTeX necessários para
+ * processar os comandos específicos do Doxygen. Além disso, as definições de
+ * segurança do sistema operativo Windows impediam que o MiKTeX descarregasse
+ * e instalasse automaticamente estes pacotes em falta, e bloqueavam a
+ * execução do compilador `pdflatex` quando este era invocado a partir de um
+ * terminal com privilégios de administrador.
+ *
+ * A resolução deste impasse exigiu da nossa equipa uma intervenção a dois
+ * níveis. Primeiro, foi necessário configurar manualmente o MiKTeX (em modo
+ * de administrador) para que este passasse a instalar as dependências de
+ * forma automática. Segundo, tivemos de garantir que todo o processo de
+ * compilação da documentação fosse executado a partir de um terminal com
+ * permissões de utilizador padrão. Este processo reforçou a importância de
+ * compreendermos não só as ferramentas em si, mas também a forma como estas
+ * interagem com o sistema operativo.
+ 
+  */
 
 
 /**
@@ -119,12 +200,9 @@ int cadeiaParaInteiro(const char *str)
         resultado = resultado * 10 + (str[i] - '0');
     }
 
-    return sinal * resultado; // Aplicamos o sinal ao resultado final.
+    return sinal * resultado;
 }
 
-// ============================================================================
-// Programa Principal de Teste
-// ============================================================================
 
 int main()
 {
@@ -144,7 +222,7 @@ int main()
     // Verifica se a linha está dentro dos limites aceitáveis.
     if (linha < 0 || linha >= ALTURA - 1)
     {
-        printf("\nErro: A linha indicada está fora dos limites do quadro.\n");
+        printf("\nErro: A linha indicada estah fora dos limites do quadro.\n");
         return 1;
     }
     printf("Indique a coluna (0 a %d) para o texto: ", LARGURA - 2);
@@ -152,11 +230,11 @@ int main()
    
     if (coluna < 0 || coluna >= LARGURA - 1)
     {
-        printf("\nErro: A coluna indicada está fora dos limites do quadro.\n");
+        printf("\nErro: A coluna indicada estah fora dos limites do quadro.\n");
         return 1; 
     }
 
-    printf("\nEscreva o que deseja imprimir (caracter, numero ou cadeia de caracteres): ");
+    printf("\nEscreva o que deseja imprimir : ");
     scanf(" %[^\n]", entrada);
 
     printf("\nEscolha a cor do texto (1 = Verde, 2 = Azul, 3 = Vermelho): ");
@@ -173,12 +251,12 @@ int main()
             atributosTexto = VERMELHO_FRENTE;
             break;
         default:
-            printf("\nCor inválida! Usaremos a cor verde por predefinição.\n");
+            printf("\nCor invalida! Aplicando cor verde predefinição.\n");
             atributosTexto = VERDE_FRENTE; 
             break;
     }
 
-    printf("\nLimpando o ecrã...\n");
+    printf("\nLimpando o ecra...\n");
     clearScreen(0, 0, LARGURA, ALTURA, AZUL_FUNDO);
     drawFrame("TRABALHO PRATICO LC", atributosQuadro, inicioX, inicioY, larguraQuadro, alturaQuadro);
 

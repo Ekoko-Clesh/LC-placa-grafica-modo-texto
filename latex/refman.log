@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.1)  1 SEP 2025 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.1)  1 SEP 2025 21:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,17 +927,55 @@ Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-) [1
+ <./img1.png>
+<img1.png, id=109, 481.04718pt x 325.96782pt>
+File: img1.png Graphic file (type png)
+<use img1.png>
+Package pdftex.def Info: img1.png  used on input line 22.
+(pdftex.def)             Requested size: 455.24408pt x 308.48885pt.
+ [1
 
-] [2
+] <./img2.png>
+<img2.png, id=120, 477.28313pt x 315.42844pt>
+File: img2.png Graphic file (type png)
+<use img2.png>
+Package pdftex.def Info: img2.png  used on input line 32.
+(pdftex.def)             Requested size: 455.24408pt x 300.86337pt.
+ [2] <./img3.png>
+<img3.png, id=127, 479.54156pt x 324.46219pt>
+File: img3.png Graphic file (type png)
+<use img3.png>
+Package pdftex.def Info: img3.png  used on input line 42.
+(pdftex.def)             Requested size: 455.24408pt x 308.02443pt.
+ <./img4.png>
+<img4.png, id=129, 486.31688pt x 330.48468pt>
+File: img4.png Graphic file (type png)
+<use img4.png>
+Package pdftex.def Info: img4.png  used on input line 52.
+(pdftex.def)             Requested size: 455.24408pt x 309.36974pt.
+ [3] <./img5.png>
+<img5.png, id=138, 490.83376pt x 331.2375pt>
+File: img5.png Graphic file (type png)
+<use img5.png>
+Package pdftex.def Info: img5.png  used on input line 59.
+(pdftex.def)             Requested size: 455.24408pt x 307.22888pt.
+
+[4]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 63.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 64
+.
+ (C:\Program Files\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)) [5] [6
 
 ]
 Cap\'{\i }tulo 2.
-(topics.tex) [3] [4
+(topics.tex) [7] [8
 
 ]
 Cap\'{\i }tulo 3.
-(files.tex) [5] [6
+(files.tex) [9] [10
 
 ]
 Cap\'{\i }tulo 4.
@@ -948,15 +986,9 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 8.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 40.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 40
-.
- (C:\Program Files\MiKTeX\tex/latex/psnfss\t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
+
 ! Undefined control sequence.
 <argument> ...rtpbox {\@nextchar }\insert@pcolumn 
                                                   \@endpbox \do@row@strut \o...
@@ -1263,16 +1295,15 @@ l.58 \end{DoxyEnumFields}
                          
 
 ? 
-[7]
 
 Package longtable Warning: Column widths have changed
 (longtable)                in table 4.1 on input line 58.
 
-) [8]
-Cap\'{\i }tulo 5.
-(_l_c___v_i_d_8h_source.tex) (utypes_8h_source.tex) [9
+) [11] [12
 
-] [10
+]
+Cap\'{\i }tulo 5.
+(_l_c___v_i_d_8h_source.tex) (utypes_8h_source.tex) [13] [14
 
 ]
 No file refman.ind.
@@ -1289,23 +1320,26 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: B5A348FB02FD6C17A3E7B41CD16C7F94;2433.
+(rerunfilecheck)             Checksum: F4945107924BAD4A125F33FA2591578C;3535.
  ) 
 Here is how much of TeX's memory you used:
- 19042 strings out of 474486
- 305100 string characters out of 5753571
+ 19110 strings out of 474486
+ 306190 string characters out of 5753571
  1936542 words of memory out of 5000000
- 40945 multiletter control sequences out of 15000+600000
- 601212 words of font info for 82 fonts, out of 8000000 for 9000
+ 40997 multiletter control sequences out of 15000+600000
+ 601833 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,11n,117p,691b,764s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files
-/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type
-1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uh
-vr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (14 pages, 96604 bytes).
+ 101i,11n,117p,694b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program
+ Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1
+/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8
+a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program
+ Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX/font
+s/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (18 pages, 182163 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -97,7 +97,45 @@ Autores</h1>
 <li>Ekoko Clesh</li>
 </ul>
 <dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>2025-09-01 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2025-09-01</dd></dl>
+<hr  />
+<div class="image">
+<img src="img1.png" alt=""/>
+<div class="caption">
+Figura 1: Execução 1.</div></div>
+ <hr  />
+<div class="image">
+<img src="img2.png" alt=""/>
+<div class="caption">
+Figura 2: Execução 2</div></div>
+ <hr  />
+<div class="image">
+<img src="img3.png" alt=""/>
+<div class="caption">
+Figura 3: Execução 3</div></div>
+ <hr  />
+<div class="image">
+<img src="img4.png" alt=""/>
+<div class="caption">
+Figura 4: Execução 4</div></div>
+ <div class="image">
+<img src="img5.png" alt=""/>
+<div class="caption">
+Figura 4: Execução 5</div></div>
+<p>  /** </p>
+<h1><a class="anchor" id="dificuldades_sec"></a>
+Dificuldades Encontradas Durante o Desenvolvimento</h1>
+<p>A execução deste projecto, levou-nos a enfrentar alguns obstáculos técnicos que exigiram uma análise cuidada e soluções específicas da nossa parte. Estes desafios, embora tivessem atrasado momentaneamente o progresso, acabaram por se revelar oportunidades de aprendizagem valiosas sobre as ferramentas que tínhamos à nossa disposição.</p>
+<h2><a class="anchor" id="desafio_dosbox"></a>
+Incompatibilidade de Nomes de Ficheiro no Ambiente DOSBox</h2>
+<p>O primeiro grande desafio com que nos deparámos surgiu durante a compilação do código-fonte. O projecto recorreu ao emulador DOSBox para garantir a compatibilidade com compiladores mais antigos, mas esta decisão trouxe consigo uma limitação inesperada. O processo de compilação, automatizado através de um <code>Makefile</code>, falhava consistentemente sempre que os ficheiros de código tinham nomes mais longos, como <code>LC_video_text.c</code>.</p>
+<p>A nossa análise do problema revelou que a causa era a estrita convenção de nomes de ficheiro <b>8.3</b> (oito caracteres para o nome, três para a extensão), imposta pelo sistema de ficheiros FAT16 que o DOSBox emula. O emulador renomeava automaticamente os ficheiros longos para um formato abreviado (ex: <code>LC_VID~1.C</code>), mas o <code>Makefile</code> que tínhamos construído continuava a referenciar o nome original. Esta discrepância resultava em erros de "Ficheiro não encontrado", bloqueando a compilação.</p>
+<p>A solução que encontrámos passou por uma refactorização: todos os nomes de ficheiro do projecto foram por nós encurtados para se conformarem ao padrão 8.3, como por exemplo <code>LC_vid.c</code>. Esta adaptação, embora simples, foi crucial para assegurarmos a estabilidade do ambiente de compilação e demonstrou na prática como sistemas legados podem impor restrições ao desenvolvimento moderno.</p>
+<h2><a class="anchor" id="desafio_doxygen"></a>
+Configuração da Geração de Documentação em PDF</h2>
+<p>Um segundo obstáculo, não menos complexo, surgiu na fase final, quando tentámos gerar a documentação do projecto em formato PDF. A cadeia de ferramentas, composta pelo Doxygen e pelo sistema de composição de texto MiKTeX (LaTeX), apresentou-nos uma série de problemas de configuração.</p>
+<p>O processo falhava durante a compilação dos ficheiros <code>.tex</code> intermediários, com erros que indicavam a falta de "pacotes" LaTeX necessários para processar os comandos específicos do Doxygen. Além disso, as definições de segurança do sistema operativo Windows impediam que o MiKTeX descarregasse e instalasse automaticamente estes pacotes em falta, e bloqueavam a execução do compilador <code>pdflatex</code> quando este era invocado a partir de um terminal com privilégios de administrador.</p>
+<p>A resolução deste impasse exigiu da nossa equipa uma intervenção a dois níveis. Primeiro, foi necessário configurar manualmente o MiKTeX (em modo de administrador) para que este passasse a instalar as dependências de forma automática. Segundo, tivemos de garantir que todo o processo de compilação da documentação fosse executado a partir de um terminal com permissões de utilizador padrão. Este processo reforçou a importância de compreendermos não só as ferramentas em si, mas também a forma como estas interagem com o sistema operativo. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

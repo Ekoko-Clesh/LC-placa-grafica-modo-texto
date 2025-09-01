@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['falso_0',['FALSO',['../group___user_types.html#gga39db6982619d623273fad8a383489309ae5c63c8019b9c052d27a427c5bc98f61',1,'utypes.h']]]
+  ['em_20grupo_0',['Documentação do Projecto Trabalho 1 em Grupo',['../index.html',1,'']]],
+  ['em_20pdf_1',['Configuração da Geração de Documentação em PDF',['../index.html#desafio_doxygen',1,'']]],
+  ['encontradas_20durante_20o_20desenvolvimento_2',['Dificuldades Encontradas Durante o Desenvolvimento',['../index.html#dificuldades_sec',1,'']]]
 ];
